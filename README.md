@@ -6,3 +6,7 @@ The dataset was found on Kaggle, there are 264 audio files with 3 audio samples 
 The link for the file is http://bit.ly/selected_audio or can be downloaded at 
 (https://www.kaggle.com/rtatman/british-birdsong-dataset).
 
+Feature Extraction:
+  We have extracted 6 spectral features from each audio clip namely Short term fourier transform, MFCCs, Tonnetz, Chroma, Melspectogram and spectral contrast. These features charecterize each audio clip and are used to train the SVM classifier.
+
+
