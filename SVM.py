@@ -1,8 +1,4 @@
-# coding= UTF-8
-#
-# Author: Fing
-# Date  : 2017-12-03
-#
+
 import xlsxwriter
 import numpy as np
 import sklearn
