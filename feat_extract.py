@@ -1,10 +1,3 @@
-#!/usr/bin/env python
-# coding= UTF-8
-#
-# Author: Fing
-# Date  : 2017-12-03
-#
-
 import code
 import glob
 import os
@@ -33,7 +26,6 @@ def extract_feature(file_name=None):
         X = np.array(data)
     if X.ndim > 1: X = X[:,0]
     X = X.T
-    print(X/n)
 
     # short term fourier transform
     stft = np.abs(librosa.stft(X))
@@ -60,10 +52,9 @@ def parse_audio_files(parent_dir,file_ext='*.flac'):
     for label, sub_dir in enumerate(sub_dirs):
         if os.path.isdir(os.path.join(parent_dir, sub_dir)):
             for fn in glob.glob(os.path.join(parent_dir, sub_dir, file_ext)):
-                try: mfccs, chroma, mel, contrast,tonnetz = extract_feature(fn)
-                except Exception as e:
-                    print("[Error] extract feature error in %s. %s" % (fn,e))
-                    continue
+                #try: 
+                mfccs, chroma, mel, contrast,tonnetz = extract_feature(fn)
+                
                 ext_features = np.hstack([mfccs,chroma,mel,contrast,tonnetz])
                 features = np.vstack([features,ext_features])
                 # labels = np.append(labels, fn.split('/')[1])
@@ -87,12 +78,10 @@ def main():
     features, labels = parse_audio_files('data')
     np.save('feat.npy', features)
     np.save('label.npy', labels)
-    print(features,labels)
-
-    # Predict new
+   # Predict new
     features, filenames = parse_predict_files('predict')
     np.save('predict_feat.npy', features)
     np.save('predict_filenames.npy', filenames)
-    print(features,labels)
+    #print(features,labels)
 
 if __name__ == '__main__': main()
