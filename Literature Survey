@@ -2,6 +2,7 @@ SVM used for multiclass classification problems:
   A Comparison of Methods for Multi-class Support Vector Machines
   -Chih-Wei Hsu and Chih-Jen Lin
   (https://www.csie.ntu.edu.tw/~cjlin/papers/multisvm.pdf)
+  https://github.com/tyiannak/pyAudioAnalysis/wiki/5.-Segmentation
   
 SVM Matlab Documentation:
   https://in.mathworks.com/help/stats/support-vector-machines-for-binary-classification.html
